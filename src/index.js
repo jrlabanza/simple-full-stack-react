@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 
 app.get('/products/add', (req, res) =>{
   const { handlerID, testerID, description, remarks } = req.query;
-  const INSERT_PRODUCTS_QUERY = `INSERT INTO sample_table(id, handlerID, testerID, description, remarks) VALUE ('${uuid()}', ${handlerID}, '${testerID}', '${description}', '${remarks}')`;
+  const INSERT_PRODUCTS_QUERY = `INSERT INTO sample_table(id, handlerID, testerID, description, remarks) VALUE ('${uuid()}', '${handlerID}', '${testerID}', '${description}', '${remarks}')`;
   connection.query(INSERT_PRODUCTS_QUERY, (err, results) =>{
     if(err) {
       return res.send(err)
